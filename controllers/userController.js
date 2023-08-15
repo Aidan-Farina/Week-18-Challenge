@@ -96,7 +96,7 @@ module.exports = {
   },
 
   // get all friends
-  async getAllFriends(req, res) {
+  async getFriends(req, res) {
     try {
       const user = await User.findOne({ _id: req.params.UserId }).populate({
         path: 'friends',
