@@ -22,7 +22,7 @@ const thoughtSchema = new Schema(
 );
 
 thoughtSchema.virtual('formattedCount').get(function () {
-    return this.createdAt.toLocaleString();
+    return this.reactions.length;
 });
 
 const Thought = model('Thought', thoughtSchema);
