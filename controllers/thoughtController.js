@@ -55,7 +55,7 @@ module.exports = {
                 res.status(404).json({ message: 'No thought with that ID' });
             }
 
-            await Student.deleteMany({ _id: {$in: thought.reactions} } );
+            await Reaction.deleteMany({ _id: {$in: thought.reactions} } );
 
             res.json({ message: 'Thought and Reactions deleted!' });
         } catch (err) {
@@ -80,7 +80,7 @@ module.exports = {
             res.status(500).json(err);
         }
     },
-
+    // add reaction
     async addReaction(req, res) {
         try {
             const user = await User.findById(req.params.userId);
